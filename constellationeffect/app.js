@@ -1,10 +1,10 @@
-function getParticleConfig() {
+function loadParticles() {
     let screenWidth = window.innerWidth;
 
-    return {
+    let config = {
         "particles": {
             "number": {
-                "value": screenWidth > 768 ? 300 : screenWidth > 480 ? 150 : 80, // Reduce particles for smaller screens
+                "value": screenWidth > 1024 ? 300 : screenWidth > 768 ? 150 : 80, // Adjust for different screen sizes
                 "density": {
                     "enable": true,
                     "value_area": 800
@@ -34,7 +34,7 @@ function getParticleConfig() {
                 }
             },
             "size": {
-                "value": screenWidth > 768 ? 2.5 : screenWidth > 480 ? 2 : 1.5, // Reduce size for smaller screens
+                "value": screenWidth > 1024 ? 3 : screenWidth > 768 ? 2 : 1, // Scale size down for mobile
                 "random": true,
                 "anim": {
                     "enable": true,
@@ -45,7 +45,7 @@ function getParticleConfig() {
             },
             "line_linked": {
                 "enable": true,
-                "distance": screenWidth > 768 ? 100 : screenWidth > 480 ? 80 : 60, // Reduce distance on small screens
+                "distance": screenWidth > 1024 ? 100 : screenWidth > 768 ? 80 : 50, // Reduce link distance for small screens
                 "color": "#ffffff",
                 "opacity": 0.1,
                 "width": 1
@@ -104,12 +104,21 @@ function getParticleConfig() {
         },
         "retina_detect": true
     };
+
+    // Destroy existing particles instance
+    if (window.pJSDom && window.pJSDom.length) {
+        window.pJSDom[0].pJS.fn.vendors.destroypJS();
+        window.pJSDom = [];
+    }
+
+    // Reinitialize particles.js
+    particlesJS('particles-js', config);
 }
 
-// Load particles with initial config
-particlesJS('particles-js', getParticleConfig());
+// Load on start
+loadParticles();
 
-// Reload particles on window resize
+// Reload on resize
 window.addEventListener('resize', function () {
-    particlesJS('particles-js', getParticleConfig());
+    setTimeout(loadParticles, 500); // Delay to prevent excessive reloads
 });
