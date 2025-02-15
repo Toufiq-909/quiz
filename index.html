@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>\
+    <link href="output.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+         display:flex;
+            justify-content:center;
+            align-items:center;
+
+        }
+
+        /* Background Particles */
+        #particles-js {
+            background-color: black;
+            position: absolute;
+            width: 100vw;
+            height: 100vh; /* Fixed height issue */
+            z-index: -1;
+        }
+
+
+    </style>
+</head>
+<body id="particles-js" class="overflow-hidden">
+
+
+
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS.load('particles-js', 'particles.json',
+        function(){
+            console.log('particles.json loaded...');
+        });
+</script>
+
+<script src="../constellationeffect/app.js"></script>
+<script src="../constellationeffect/particles.js"></script>
+
+</body>
+</html>
