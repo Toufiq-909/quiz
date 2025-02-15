@@ -34,21 +34,21 @@ function loadParticles() {
                 }
             },
             "size": {
-                "value": screenWidth > 1024 ? 3 : screenWidth > 768 ? 2 : 1, // Scale size down for mobile
+                "value": screenWidth <= 768 ? 5 : 2.5, // Larger stars for small screens
                 "random": true,
                 "anim": {
                     "enable": true,
                     "speed": 4,
-                    "size_min": 0.5,
+                    "size_min": 1,
                     "sync": false
                 }
             },
             "line_linked": {
                 "enable": true,
-                "distance": screenWidth > 1024 ? 100 : screenWidth > 768 ? 80 : 50, // Reduce link distance for small screens
+                "distance": screenWidth <= 768 ? 120 : 100, // Slightly longer links for small screens
                 "color": "#ffffff",
-                "opacity": 0.1,
-                "width": 1
+                "opacity": screenWidth <= 768 ? 0.5 : 0.1, // Brighter connections on small screens
+                "width": screenWidth <= 768 ? 2 : 1 // Thicker lines for better visibility on mobile
             },
             "move": {
                 "enable": true,
