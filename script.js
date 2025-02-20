@@ -16,4 +16,20 @@ setInterval(()=>{
 
 
 },5000)
+let p=document.getElementById("hello");
+p.addEventListener("keypress",(event)=>{
+    let parent=event.target.parentNode;
+    let butt=parent.children[1];
+    console.log(p.value)
+    if(p.value!="")
+    {
+        butt.style.opacity="1";
+    }
+    else
+    {
+        butt.style.opacity="0";
 
+    }
+
+
+})
