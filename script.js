@@ -21,6 +21,7 @@ p.addEventListener("keypress",(event)=>{
     let parent=event.target.parentNode;
     let butt=parent.children[1];
     console.log(p.value)
+    console.log("gello");
     if(p.value!="")
     {
         butt.style.opacity="1";
