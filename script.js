@@ -17,20 +17,37 @@ setInterval(()=>{
 
 },5000)
 let p=document.getElementById("hello");
-p.addEventListener("keypress",(event)=>{
+p.addEventListener("keyup",(event)=>{
     let parent=event.target.parentNode;
     let butt=parent.children[1];
-    console.log(p.value)
-    console.log("gello");
     if(p.value!="")
     {
         butt.style.opacity="1";
+        butt.style.cursor="pointer";
     }
     else
     {
         butt.style.opacity="0";
+        butt.style.cursor="text";
 
     }
 
 
-})
+});
+let butt='Show';
+function pass()
+{
+    let pu=document.getElementById("hey");
+   if(pu.innerHTML==="Show")
+   {
+       p.type="text";
+       pu.innerHTML="Hide";
+   }
+   else
+   {
+       p.type="password";
+       pu.innerHTML="Show";
+
+   }
+
+}
